@@ -129,18 +129,18 @@ def on_draw():
     fps_display.draw()
 
 
+if __name__=="__main__":
+    fps_display = FPSDisplay(window)
 
-fps_display = FPSDisplay(window)
-
-map = CarMap()
-ai = Ai()
-net = Net()
-device = torch.device('cpu')
-net.load_state_dict(torch.load('models/'+car_model+'.txt', map_location=device))
-net.double()
-car = Car()
-keys = Keyboard_helper()
-collision = Collision()
-pyglet.clock.schedule_interval(update_frames,1/24.0)
-pyglet.app.run()
+    map = CarMap()
+    ai = Ai()
+    net = Net()
+    device = torch.device('cpu')
+    net.load_state_dict(torch.load('models/'+car_model+'.txt', map_location=device))
+    net.double()
+    car = Car()
+    keys = Keyboard_helper()
+    collision = Collision()
+    pyglet.clock.schedule_interval(update_frames,1/24.0)
+    pyglet.app.run()
 
